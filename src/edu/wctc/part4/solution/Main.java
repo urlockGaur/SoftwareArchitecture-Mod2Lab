@@ -1,5 +1,7 @@
 package edu.wctc.part4.solution;
 
+import edu.wctc.part4.EmployingCompany;
+
 /**
  * This class is the startup class for the sample application which is a
  * simulation of how companies hire employees. Notice that each class has a very
@@ -21,10 +23,10 @@ package edu.wctc.part4.solution;
 public class Main {
 
     public static void main(String[] args) {
-        Company company = new Company();
+        EmployingCompany employingCompany = new EmployingCompany();
 
         // Startup delegates work to Company which then delegates work to HRManager
-        company.hireEmployee("John", "Doe", "444-44-4444");
+        employingCompany.hireEmployee("John", "Doe", "444-44-4444");
 
     }
 

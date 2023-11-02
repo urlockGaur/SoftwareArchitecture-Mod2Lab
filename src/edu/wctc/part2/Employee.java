@@ -33,25 +33,36 @@ public class Employee {
     private String cubeId;
     private LocalDate orientationDate;
 
+    private DateTimeFormatter dateTimeFormatter;
     public Employee(String firstName, String lastName, String ssn) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.ssn = ssn;
     }
 
+    private String formatDate(LocalDate date)
+    {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yy");
+        return formatter.format(date);
+    }
+    public void humanResourcesProtocol()
+    {
+        meetWithHrForBenefitAndSalaryInfo();
+        meetDepartmentStaff();
+    }
+
     // Assume this must be performed first, and assume that an employee
     // would only do this once, upon being hired.
-    public void meetWithHrForBenefitAndSalaryInfo() {
+    private void meetWithHrForBenefitAndSalaryInfo() {
         metWithHr = true;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yy");
-        String fmtDate = formatter.format(orientationDate);
+        String fmtDate = formatDate(orientationDate);
         System.out.println(firstName + " " + lastName + " met with HR on "
                 + fmtDate);
     }
 
     // Assume this must be performed second, and assume that an employee
     // would only do this once, upon being hired.
-    public void meetDepartmentStaff() {
+    private void meetDepartmentStaff() {
         metDeptStaff = true;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yy");
         String fmtDate = formatter.format(orientationDate);

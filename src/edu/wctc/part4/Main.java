@@ -1,5 +1,7 @@
 package edu.wctc.part4;
 
+import edu.wctc.part4.solution.Company;
+
 /**
  * This class is the startup class for the program. But together with the other
  * classes provided it is not a particularly good simulation of the real world.
@@ -11,10 +13,11 @@ package edu.wctc.part4;
 public class Main {
 
     public static void main(String[] args) {
-        Employee employee = new Employee("Peter", "Piper", "333-33-3333");
+        Company company = new Company();
 
-        employee.doFirstTimeOrientation("A101");
-        employee.printReport();
+        // Startup delegates work to Company which then delegates work to HRManager
+        company.hireEmployee("John", "Doe", "444-44-4444");
+
     }
 
 }
