@@ -35,9 +35,9 @@ public class Employee {
 
     private DateTimeFormatter dateTimeFormatter;
     public Employee(String firstName, String lastName, String ssn) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.ssn = ssn;
+        setFirstName(firstName);
+        setLastName(lastName);
+        setSsn(ssn);
     }
 
     private String formatDate(LocalDate date)
@@ -101,6 +101,10 @@ public class Employee {
     // allowed through validation.
 
     public void setFirstName(String firstName) {
+
+        if (firstName.length() < 0) {
+            throw new IllegalArgumentException(" age can't be negative");
+        }
         this.firstName = firstName;
     }
 
@@ -109,6 +113,11 @@ public class Employee {
     }
 
     public void setLastName(String lastName) {
+        if (lastName.length() < 0) {
+
+            throw new IllegalArgumentException(" age can't be negative");
+        }
+
         this.lastName = lastName;
     }
 
@@ -117,7 +126,9 @@ public class Employee {
     }
 
     public void setSsn(String ssn) {
-        this.ssn = ssn;
+        if (ssn.length() < 9 || ssn.length() > 9) {
+            throw new IllegalArgumentException(" SSN must be 9 digits");
+        }this.ssn = ssn;
     }
 
     public boolean hasMetWithHr() {
@@ -141,6 +152,10 @@ public class Employee {
     }
 
     public void setCubeId(String cubeId) {
+
+        if (cubeId.length() >= 500) {
+            throw   new IllegalArgumentException("Cube ID must be less than 500");
+        }
         this.cubeId = cubeId;
     }
 
